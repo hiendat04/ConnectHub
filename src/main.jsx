@@ -5,6 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "@pages/RootLayout";
 import ModalProvider from "@context/ModalProvider";
 import { lazy } from "react";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./configs/muiConfig";
+import RegisterPage from "@pages/RegisterPage";
 
 const HomePage = lazy(() => import("@pages/HomePage"));
 
@@ -16,11 +19,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
       },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
     ],
   },
 ]);
 createRoot(document.getElementById("root")).render(
-  <ModalProvider>
-    <RouterProvider router={router} />
-  </ModalProvider>,
+  <ThemeProvider theme={theme}>
+    <ModalProvider>
+      <RouterProvider router={router} />
+    </ModalProvider>
+  </ThemeProvider>,
 );

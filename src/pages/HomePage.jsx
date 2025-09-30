@@ -1,5 +1,12 @@
+import { Button } from "@mui/material";
+
 function HomePage() {
-  return <p>HomePage</p>;
+  return (
+    <div>
+      <Button variant="contained">Login</Button>
+      <p>HomePage</p>
+    </div>
+  );
 }
 
 export default HomePage;
